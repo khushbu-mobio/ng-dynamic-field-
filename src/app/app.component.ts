@@ -15,10 +15,14 @@ export class AppComponent {
   
   constructor(private fb: FormBuilder) {}
 
+  /**
+   * set config to form
+   */
   ngOnInit() {
     this.form = this.addControls(this.config);
   }
 
+  
   public addControls(config) {
     const group = this.fb.group({});
     Object.keys(config).forEach(field => {
@@ -34,6 +38,10 @@ export class AppComponent {
     return group;
   }
 
+  /**
+   * Bind Validations
+   * @param validations 
+   */
   public bindValidations(validations: any) {
     if (validations.length > 0) {
       const validList = [];
