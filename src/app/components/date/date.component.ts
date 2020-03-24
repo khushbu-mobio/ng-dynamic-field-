@@ -3,15 +3,16 @@ import { FormGroup } from '@angular/forms';
 import { FieldConfig } from 'src/app/fieldConfig.interface';
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css']
+  selector: 'app-date',
+  templateUrl: './date.component.html',
+  styleUrls: ['./date.component.css']
 })
-export class CheckboxComponent implements OnInit {
+export class DateComponent implements OnInit {
 
   field: FieldConfig;
+  
   group: FormGroup;
-
+  
   constructor() { }
 
   ngOnInit() {

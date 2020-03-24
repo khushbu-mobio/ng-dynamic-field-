@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FieldConfig } from 'src/app/fieldConfig.interface';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-button',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  constructor() { }
+  field: FieldConfig;
 
-  ngOnInit() {
-  }
-
+  group: FormGroup;
+  
+  constructor() {}
+  ngOnInit() {}
 }
