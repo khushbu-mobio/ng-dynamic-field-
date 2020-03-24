@@ -1,7 +1,6 @@
 import { Directive, Input, ViewContainerRef, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 import { InputComponent } from '../components/input/input.component';
-import { FieldConfig } from '../fieldConfig.interface';
 import { ButtonComponent } from '../components/button/button.component';
 import { SelectComponent } from '../components/select/select.component';
 import { DateComponent } from '../components/date/date.component';
@@ -25,7 +24,7 @@ export class DynamicFieldDirective implements OnInit {
    * receive the input from the parent component 
    * and assign it to the corresponding field component.
    */
-  @Input() field: FieldConfig;
+  @Input() field: any;
   @Input() group: FormGroup;
 
   /**
@@ -45,6 +44,7 @@ export class DynamicFieldDirective implements OnInit {
 
   ngOnInit() {
 
+    console.log('directive CALL');
     /**
      * create the component factory
      */

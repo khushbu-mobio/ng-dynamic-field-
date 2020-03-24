@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from "@angular/forms";
-import { FieldConfig } from 'src/app/fieldConfig.interface';
+
 
 @Component({
   selector: 'app-input',
@@ -9,11 +9,14 @@ import { FieldConfig } from 'src/app/fieldConfig.interface';
 })
 export class InputComponent implements OnInit {
 
-  field: FieldConfig;
+
+  field: any;
   group: FormGroup;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    console.log("i am called");
+  }
 
 }

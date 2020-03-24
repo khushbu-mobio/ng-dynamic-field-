@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FieldConfig } from 'src/app/fieldConfig.interface';
+
 
 @Component({
   selector: 'app-checkbox',
@@ -9,7 +9,7 @@ import { FieldConfig } from 'src/app/fieldConfig.interface';
 })
 export class CheckboxComponent implements OnInit {
 
-  field: FieldConfig;
+  field: any;
   group: FormGroup;
 
   constructor() { }
