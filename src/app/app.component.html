@@ -1,42 +1,85 @@
-<div class="form">
-  <div style="text-align:center">
-    <h1>
-      Registration Form
-    </h1>
+<div class="row">
+  <div class="column" >
+    <div class="form">
+      <div style="text-align:center">
+        <h1>
+          Registration Form
+        </h1>
+      </div>
+      <mat-card>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <ng-container [group]="form" *ngIf="config['inputConfig']" appDynamicField [field]="config['inputConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['emailInputConfig']" appDynamicField
+            [field]="config['emailInputConfig']">
+          </ng-container>
+          <ng-container [group]=" form" *ngIf="config['passInputConfig']" appDynamicField
+            [field]="config['passInputConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['radioConfig']" appDynamicField [field]="config['radioConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['dateConfig']" appDynamicField [field]="config['dateConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['dropdownConfig']" appDynamicField [field]="config['dropdownConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField [field]="config['checkboxConfig']">
+          </ng-container>
+    
+          <br>
+          <ng-container [group]=" form" *ngIf="config['fileConfig']" appDynamicField [field]="config['fileConfig']">
+          </ng-container>
+    
+          <ng-container [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
+          </ng-container>
+    
+        </form>
+      </mat-card>
+    </div>
   </div>
-  <mat-card>
-    <form [formGroup]="form"  >
-      <ng-container [group]="form" *ngIf="config['inputConfig']" appDynamicField [field]="config['inputConfig']">
-      </ng-container>
-
-      <ng-container [group]=" form" *ngIf="config['emailInputConfig']" appDynamicField
-        [field]="config['emailInputConfig']">
-      </ng-container>
-      <ng-container [group]=" form" *ngIf="config['passInputConfig']" appDynamicField
-        [field]="config['passInputConfig']">
-      </ng-container>
-
-      <ng-container [group]=" form" *ngIf="config['radioConfig']" appDynamicField [field]="config['radioConfig']">
-      </ng-container>
-
-      <ng-container [group]=" form" *ngIf="config['dateConfig']" appDynamicField [field]="config['dateConfig']">
-      </ng-container>
-
-      <ng-container [group]=" form" *ngIf="config['dropdownConfig']" appDynamicField [field]="config['dropdownConfig']">
-      </ng-container>
-
-      <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField [field]="config['checkboxConfig']">
-      </ng-container>
-
-      <br>
-      <ng-container [group]=" form" *ngIf="config['fileConfig']" appDynamicField [field]="config['fileConfig']">
-      </ng-container>
-      
-      <ng-container  [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
-      </ng-container>
-
-    </form>
-  </mat-card>
+  <div class="column">
+    <table>
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Gender</th>
+        <th>DOB</th>
+        <th>Country</th>
+        <th>Accept Terms</th>
+        <th>Upload File</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let item of data;  let i = index">
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.password}}</td>
+        <td>{{ item.gender }}</td>
+        <td>{{item.dob}}</td>
+        <td>{{item.country}}</td>
+        <td>{{item.term}}</td>
+        <td>{{item.file}}</td>
+        <td>
+          <button type="button" mat-button (click)="editFieldValue(i)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button type="button" mat-button (click)="deleteFieldValue(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
+
+
+
+
+
 <!-- {{ config | json }} -->
-    {{ form.value | json}}
+<!-- {{ form.value | json}} -->
+

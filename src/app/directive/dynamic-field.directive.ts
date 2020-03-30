@@ -47,7 +47,7 @@ export class DynamicFieldDirective implements OnInit {
 
   ngOnInit() {
 
-    console.log('directive CALL');
+    // console.log('directive CALL');
     /**
      * create the component factory
      */

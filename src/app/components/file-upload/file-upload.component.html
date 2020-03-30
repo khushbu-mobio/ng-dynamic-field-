@@ -1,7 +1,7 @@
 <div [formGroup]="group" class="upload-btn-wrapper">
   <button class="btn">Upload a file</button>
-  <input [formControlName]="field.name" [placeholder]="field.label" [type]="field.inputType">
-  <!-- <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
+  <input [formControlName]="field.name" accept=".doc,.docx,.xml,.png" [placeholder]="field.label" [type]="field.inputType">
+  <ng-container *ngFor="let validation of field.validations;" ngProjectAs="mat-error">
     <mat-error *ngIf="group.get(field.name).hasError(validation.name)">{{validation.message}}</mat-error>
-  </ng-container> -->
+  </ng-container>
 </div>

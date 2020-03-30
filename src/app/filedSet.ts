@@ -1,6 +1,7 @@
 import { Validators } from '@angular/forms';
 
 export class FieldSet {
+    id: number;
     inputConfig = {
         type: 'input',
         label: 'username',
@@ -95,11 +96,12 @@ export class FieldSet {
       label: "File",
       inputType: 'file',
       name: "file",
+      value: null,
       validations: [
           {
             name: "required",
             validator: Validators.required,
-            message: "File Required"
+            message: "File should be .doc,.docx,.xml,.png"
           }
         ]
   };
