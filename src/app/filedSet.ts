@@ -97,12 +97,5 @@ export class FieldSet {
       inputType: 'file',
       name: "file",
       value: null,
-      validations: [
-          {
-            name: "required",
-            validator: Validators.required,
-            message: "File should be .doc,.docx,.xml,.png"
-          }
-        ]
   };
 }

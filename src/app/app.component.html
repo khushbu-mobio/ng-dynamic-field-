@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="column" >
+  <div class="column">
     <div class="form">
       <div style="text-align:center">
         <h1>
@@ -10,33 +10,37 @@
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <ng-container [group]="form" *ngIf="config['inputConfig']" appDynamicField [field]="config['inputConfig']">
           </ng-container>
-    
+
           <ng-container [group]=" form" *ngIf="config['emailInputConfig']" appDynamicField
             [field]="config['emailInputConfig']">
           </ng-container>
           <ng-container [group]=" form" *ngIf="config['passInputConfig']" appDynamicField
             [field]="config['passInputConfig']">
           </ng-container>
-    
+
           <ng-container [group]=" form" *ngIf="config['radioConfig']" appDynamicField [field]="config['radioConfig']">
           </ng-container>
-    
+
           <ng-container [group]=" form" *ngIf="config['dateConfig']" appDynamicField [field]="config['dateConfig']">
           </ng-container>
-    
-          <ng-container [group]=" form" *ngIf="config['dropdownConfig']" appDynamicField [field]="config['dropdownConfig']">
+
+          <ng-container [group]=" form" *ngIf="config['dropdownConfig']" appDynamicField
+            [field]="config['dropdownConfig']">
           </ng-container>
-    
-          <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField [field]="config['checkboxConfig']">
+
+          <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField
+            [field]="config['checkboxConfig']">
           </ng-container>
-    
+
           <br>
           <ng-container [group]=" form" *ngIf="config['fileConfig']" appDynamicField [field]="config['fileConfig']">
           </ng-container>
-    
+
+          <p *ngIf="filename">{{filename}} </p>
+          
           <ng-container [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
           </ng-container>
-    
+
         </form>
       </mat-card>
     </div>
@@ -82,4 +86,3 @@
 
 <!-- {{ config | json }} -->
 <!-- {{ form.value | json}} -->
-
