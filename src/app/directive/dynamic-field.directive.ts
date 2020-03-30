@@ -6,7 +6,8 @@ import { SelectComponent } from '../components/select/select.component';
 import { DateComponent } from '../components/date/date.component';
 import { RadiobuttonComponent } from '../components/radiobutton/radiobutton.component';
 import { CheckboxComponent } from '../components/checkbox/checkbox.component';
-import { FileUploadComponent } from '../file-upload/file-upload.component';
+import { FileUploadComponent } from '../components/file-upload/file-upload.component';
+
 
 const componentMapper = {
   input: InputComponent,

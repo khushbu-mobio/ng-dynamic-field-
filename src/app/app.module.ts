@@ -13,7 +13,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { DynamicFieldDirective } from './directive/dynamic-field.directive';
 
 import { DateComponent } from './components/date/date.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+
 
 @NgModule({
   declarations: [
