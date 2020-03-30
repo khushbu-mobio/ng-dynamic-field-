@@ -13,6 +13,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { DynamicFieldDirective } from './directive/dynamic-field.directive';
 
 import { DateComponent } from './components/date/date.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DateComponent } from './components/date/date.component';
     RadiobuttonComponent,
     CheckboxComponent,
     DynamicFieldDirective,
-    DateComponent
+    DateComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { DateComponent } from './components/date/date.component';
     SelectComponent,
     DateComponent,
     RadiobuttonComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    FileUploadComponent
     ]
 })
 export class AppModule { }

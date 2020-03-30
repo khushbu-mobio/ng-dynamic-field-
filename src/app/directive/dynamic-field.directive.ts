@@ -6,6 +6,7 @@ import { SelectComponent } from '../components/select/select.component';
 import { DateComponent } from '../components/date/date.component';
 import { RadiobuttonComponent } from '../components/radiobutton/radiobutton.component';
 import { CheckboxComponent } from '../components/checkbox/checkbox.component';
+import { FileUploadComponent } from '../file-upload/file-upload.component';
 
 const componentMapper = {
   input: InputComponent,
@@ -13,7 +14,8 @@ const componentMapper = {
   select: SelectComponent,
   date: DateComponent,
   radiobutton: RadiobuttonComponent,
-  checkbox: CheckboxComponent
+  checkbox: CheckboxComponent,
+  file: FileUploadComponent
 };
 @Directive({
   selector: '[appDynamicField]'

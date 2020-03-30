@@ -28,7 +28,11 @@
       <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField [field]="config['checkboxConfig']">
       </ng-container>
 
-      <ng-container [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
+      <br>
+      <ng-container [group]=" form" *ngIf="config['fileConfig']" appDynamicField [field]="config['fileConfig']">
+      </ng-container>
+      
+      <ng-container  [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
       </ng-container>
 
     </form>

@@ -89,4 +89,18 @@ export class FieldSet {
         type: "button",
         label: "Save"
     }
+
+    fileConfig = {
+      type: "file",
+      label: "File",
+      inputType: 'file',
+      name: "file",
+      validations: [
+          {
+            name: "required",
+            validator: Validators.required,
+            message: "File Required"
+          }
+        ]
+  };
 }
