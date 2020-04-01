@@ -13,7 +13,7 @@
             {
                 "name": "pattern",
                 "validator": "^[a-zA-Z]+$",
-                "message": "Accept only text"
+                "message": "Accept only Alphabets"
             }
         ]
     },

@@ -55,8 +55,8 @@ export class AppComponent {
     })
   }
 
+  /** start Change Event for show feilds */
   userNameChange($event) {
-    console.log("Change called in app");
     this.email = true;
   }
   emailChange($event) {
@@ -80,6 +80,9 @@ export class AppComponent {
   fileChange($event) {
     this.save = true;
   }
+
+  /** End Change Event for show feilds */
+  
   /**
    * check unique email id and submit the form data and also edit value based on condition
    */
@@ -94,7 +97,6 @@ export class AppComponent {
       }
       this.data.push(this.form.value);
     } else {
-      console.log("edit calllind ele");
       this.data[this.editIndex].name = this.form.value.name;
       this.data[this.editIndex].email = this.form.value.email;
       this.data[this.editIndex].password = this.form.value.password;

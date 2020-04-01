@@ -29,8 +29,6 @@ export class HelperService {
    * Bind Validations
    */
   public bindValidations(validations: any) {
-    console.log("validation", validations);
-    
     if (validations.length > 0) {
       const validList = [];
       validations.forEach((valid) => {
