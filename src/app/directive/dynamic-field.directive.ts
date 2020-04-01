@@ -72,7 +72,7 @@ export class DynamicFieldDirective implements OnInit {
     this.componentRef.instance.group = this.group;
 
     /**
-     * set component to chag emitter
+     * set componentRef to change emitter based on cases
      */
     switch (this.field.type) {
       case 'userName':
