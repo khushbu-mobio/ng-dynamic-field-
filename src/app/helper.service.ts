@@ -35,9 +35,9 @@ export class HelperService {
         if (valid.name === 'required') {
           validList.push(Validators.required);
         }
-        if (valid.name === 'pattern') {
-          validList.push(Validators.pattern(String(validations)));
-        }
+        // if (valid.name === 'pattern') {
+        //   validList.push(Validators.pattern(String(validations)));
+        // }
       });
       return Validators.compose(validList);
     }

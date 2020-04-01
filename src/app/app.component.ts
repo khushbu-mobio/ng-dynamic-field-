@@ -70,6 +70,8 @@ export class AppComponent {
     this.dob = true;
   }
   dobChange($event) {
+
+    console.log("date");
     this.country = true;
   }
   countryChange($event) {
