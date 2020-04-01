@@ -45,7 +45,6 @@ export class AppComponent {
         "US"
       ];
       this.config['gender'].options = ["Male", "Female"];
-      // this.form = this.addControls(this.config)
       this.form = this.helperService.addControls(this.config)
 
     })
