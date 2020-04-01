@@ -1,4 +1,4 @@
-import { Directive, Input, ViewContainerRef, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Directive, Input, ViewContainerRef, ComponentFactoryResolver, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 import { InputComponent } from '../components/input/input.component';
 import { ButtonComponent } from '../components/button/button.component';
@@ -10,11 +10,13 @@ import { FileUploadComponent } from '../components/file-upload/file-upload.compo
 
 
 const componentMapper = {
-  input: InputComponent,
+  userName: InputComponent,
+  password: InputComponent,
+  email: InputComponent,
   button: ButtonComponent,
   select: SelectComponent,
   date: DateComponent,
-  radiobutton: RadiobuttonComponent,
+  radio: RadiobuttonComponent,
   checkbox: CheckboxComponent,
   file: FileUploadComponent
 };
@@ -29,7 +31,7 @@ export class DynamicFieldDirective implements OnInit {
    */
   @Input() field: any;
   @Input() group: FormGroup;
-
+  @Output() change: EventEmitter<any> = new EventEmitter<any>();
   /**
    *  maintains the instance of dynamically created component.
    */
@@ -47,7 +49,6 @@ export class DynamicFieldDirective implements OnInit {
 
   ngOnInit() {
 
-    // console.log('directive CALL');
     /**
      * create the component factory
      */
@@ -69,5 +70,37 @@ export class DynamicFieldDirective implements OnInit {
      * Pass  group properties into dynamically created component
      */
     this.componentRef.instance.group = this.group;
+
+
+    switch (this.field.type) {
+      case 'userName':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'email':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'password':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'radio':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'date':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'select':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'checkbox':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'file':
+        this.componentRef.instance.change = this.change;
+        break;
+      case 'button':
+        this.componentRef.instance.change = this.change;
+        break;
+
+    }
   }
 }

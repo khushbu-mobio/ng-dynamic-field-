@@ -7,44 +7,58 @@
         </h1>
       </div>
       <mat-card>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <ng-container [group]="form" *ngIf="config['inputConfig']" appDynamicField [field]="config['inputConfig']">
+        <form (ngSubmit)="onSubmit()">
+          <div *ngIf="userName ">
+            <ng-container (change)="userNameChange($event)" [group]="form" *ngIf="config.userName" appDynamicField
+              [field]="config.userName">
+            </ng-container>
+          </div>
+          <div *ngIf="email">
+            <ng-container (change)="emailChange($event)" [group]=" form" *ngIf="config.email " appDynamicField
+              [field]="config.email">
+            </ng-container>
+          </div>
+          <div *ngIf="passowrd">
+            <ng-container (change)="passwordChange($event)" [group]=" form" *ngIf="config.password" appDynamicField
+              [field]="config.password">
+            </ng-container>
+          </div>
+          <div *ngIf="gender">
+            <ng-container (change)="genderChange($event)" [group]=" form" *ngIf="config.gender" appDynamicField
+              [field]="config.gender">
+            </ng-container>
+          </div>
+          <div *ngIf="dob">
+            <ng-container (change)="dobChange($event)" [group]=" form" *ngIf="config.dateOfBirth" appDynamicField
+              [field]="config.dateOfBirth">
+            </ng-container>
+          </div>
+          <!-- <div *ngIf="country"> -->
+          <ng-container (change)="countryChange($event)" [group]=" form" *ngIf="config.country" appDynamicField
+            [field]="config.country">
           </ng-container>
-
-          <ng-container [group]=" form" *ngIf="config['emailInputConfig']" appDynamicField
-            [field]="config['emailInputConfig']">
+          <!-- </div> -->
+          <!-- <div *ngIf="term">  -->
+          <ng-container (change)="termChange($event)" [group]=" form" *ngIf="config.terms" appDynamicField
+            [field]="config.terms">
           </ng-container>
-          <ng-container [group]=" form" *ngIf="config['passInputConfig']" appDynamicField
-            [field]="config['passInputConfig']">
-          </ng-container>
-
-          <ng-container [group]=" form" *ngIf="config['radioConfig']" appDynamicField [field]="config['radioConfig']">
-          </ng-container>
-
-          <ng-container [group]=" form" *ngIf="config['dateConfig']" appDynamicField [field]="config['dateConfig']">
-          </ng-container>
-
-          <ng-container [group]=" form" *ngIf="config['dropdownConfig']" appDynamicField
-            [field]="config['dropdownConfig']">
-          </ng-container>
-
-          <ng-container [group]=" form" *ngIf="config['checkboxConfig']" appDynamicField
-            [field]="config['checkboxConfig']">
-          </ng-container>
-
+          <!-- </div> -->
+          <div *ngIf="file">
+            <ng-container (change)="fileChange($event)" [group]=" form" *ngIf="config.file" appDynamicField
+              [field]="config.file">
+            </ng-container>
+          </div>
           <br>
-          <ng-container [group]=" form" *ngIf="config['fileConfig']" appDynamicField [field]="config['fileConfig']">
-          </ng-container>
-
           <p *ngIf="filename">{{filename}} </p>
-          
-          <ng-container [group]=" form" *ngIf="config['buttonConfig']" appDynamicField [field]="config['buttonConfig']">
-          </ng-container>
-
+          <div *ngIf="save">
+            <ng-container [group]=" form" *ngIf="config.button" appDynamicField [field]="config.button">
+            </ng-container>
+          </div>
         </form>
       </mat-card>
     </div>
   </div>
+
   <div class="column">
     <table>
       <tr>
@@ -79,10 +93,3 @@
     </table>
   </div>
 </div>
-
-
-
-
-
-<!-- {{ config | json }} -->
-<!-- {{ form.value | json}} -->

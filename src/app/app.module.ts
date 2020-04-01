@@ -14,6 +14,7 @@ import { DynamicFieldDirective } from './directive/dynamic-field.directive';
 
 import { DateComponent } from './components/date/date.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

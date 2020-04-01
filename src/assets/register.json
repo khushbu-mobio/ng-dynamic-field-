@@ -1,0 +1,87 @@
+{
+    "userName": {
+        "type": "userName",
+        "label": "username",
+        "name": "name",
+        "valid": "name requied",
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Name Required"
+            },
+            {
+                "name": "pattern",
+                "validator": "^[a-zA-Z]+$",
+                "message": "Accept only text"
+            }
+        ]
+    },
+    "email": {
+        "type": "email",
+        "label": "Email Address",
+        "name": "email",
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Email Required"
+            },
+            {
+                "name": "pattern",
+                "validator": "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+                "message": "Invalid email"
+            }
+        ]
+    },
+    "password": {
+        "type": "password",
+        "label": "Password",
+        "name": "password",
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Password Required"
+            }
+        ]
+    },
+    "gender": {
+        "type": "radio",
+        "label": "Gender",
+        "name": "gender",
+        "options": []
+    },
+    "dateOfBirth": {
+        "type": "date",
+        "label": "DOB",
+        "name": "dob",
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Date of Birth Required"
+            }
+        ]
+    },
+    "country": {
+        "type": "select",
+        "label": "Country",
+        "name": "country",
+        "options": []
+    },
+    "terms": {
+        "type": "checkbox",
+        "label": "Accept Terms",
+        "name": "term"
+    },
+    "button": {
+        "type": "button",
+        "label": "Save"
+    },
+    "file": {
+        "type": "file",
+        "label": "File",
+        "name": "file"
+    }
+}

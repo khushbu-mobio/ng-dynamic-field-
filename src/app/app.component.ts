@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { FieldSet } from './filedSet';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HelperService } from './helper.service';
 
 @Component({
   selector: 'app-root',
@@ -12,29 +14,81 @@ export class AppComponent {
   editIndex: any;
   title = 'dynamic-field-demo';
   filename: any;
-  config = new FieldSet();
+  // config = new FieldSet();
   form: FormGroup
   data: any = [];
   edit = false
-  constructor(private fb: FormBuilder) { }
+  config: any = [];
+  ///
+  userName = true;
+  email = false;
+  passowrd = false;
+  gender = false;
+  dob = false;
+  country = false;
+  term = false;
+  file = false;
+  save = false;
+  //
+  constructor(private fb: FormBuilder, private httpClient: HttpClient,
+    private helperService: HelperService) { }
 
   /**
    * set config to form
    */
   ngOnInit() {
-    this.form = this.addControls(this.config);
+    // this.form = this.addControls(this.config);
+
+    this.httpClient.get("assets/register.json").subscribe(data => {
+      this.config = data;
+      this.config['country'].options = [
+        "India",
+        "UAE",
+        "UK",
+        "US"
+      ];
+      this.config['gender'].options = ["Male", "Female"];
+      // this.form = this.addControls(this.config)
+      this.form = this.helperService.addControls(this.config)
+
+    })
   }
 
+  userNameChange($event) {
+    console.log("Change called in app");
+    // //this.form.controls['email'].enable();
+    this.email = true;
+
+  }
+  emailChange($event) {
+    this.passowrd = true;
+  }
+  passwordChange($event) {
+    this.gender = true;
+  }
+  genderChange($event) {
+    this.dob = true;
+  }
+  dobChange($event) {
+    this.country = true;
+  }
+  countryChange($event) {
+    this.term = true;
+  }
+  termChange($event) {
+    this.file = true;
+  }
+  fileChange($event) {
+    this.save = true;
+  }
+  /**
+   * check unique email id and submit the form data and also edit value based on condition
+   */
   onSubmit() {
-    /**
-     * check unique email id
-     */
     if (this.edit === false) {
       let result = this.data.filter(item => {
         return item.email === this.form.value.email
       });
-      console.log("svae call", this.form.value);
-      console.log("result demo", result);
       if (result.length > 0) {
         alert("email exits");
         return;
@@ -51,37 +105,6 @@ export class AppComponent {
       this.data[this.editIndex].file = this.form.value.file;
     }
     this.form.reset();
-    // console.log("cjheck===", result.length > 0 ? 'exit' : 'not');
-  }
- 
-
-  public addControls(config) {
-    const group = this.fb.group({});
-    Object.keys(config).forEach(field => {
-      if (config[field].type === 'button') {
-        return;
-      }
-      const control = this.fb.control(
-        config[field].value,
-        this.bindValidations(config[field].validations || [])
-      );
-      group.addControl(config[field].name, control);
-    });
-    return group;
-  }
-
-  /**
-   * Bind Validations
-   */
-  public bindValidations(validations: any) {
-    if (validations.length > 0) {
-      const validList = [];
-      validations.forEach(valid => {
-        validList.push(valid.validator);
-      });
-      return Validators.compose(validList);
-    }
-    return null;
   }
 
   /**
@@ -97,10 +120,9 @@ export class AppComponent {
   editFieldValue(index) {
     this.editIndex = index;
     this.edit = true
-    console.log("edit called");
     let data = this.data[index];
     this.filename = this.data[index].file;
-    console.log("dastata", data);
+    this.form.controls['email'].disable();
     this.form.patchValue({
       name: data.name,
       email: data.email,
@@ -112,3 +134,6 @@ export class AppComponent {
     })
   }
 }
+
+
+

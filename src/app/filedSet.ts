@@ -1,7 +1,7 @@
 import { Validators } from '@angular/forms';
 
 export class FieldSet {
-    id: number;
+   
     inputConfig = {
         type: 'input',
         label: 'username',

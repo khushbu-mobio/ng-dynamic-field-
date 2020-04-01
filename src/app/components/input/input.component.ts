@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 
 
@@ -12,11 +12,15 @@ export class InputComponent implements OnInit {
 
   field: any;
   group: FormGroup;
+  change: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() { 
-    // console.log("i am called");
+  }
+  /**onchange event */
+  onChange(event) {
+    this.change.emit(this.group.value);
   }
 
 }
