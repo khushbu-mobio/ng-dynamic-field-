@@ -34,21 +34,21 @@
             </ng-container>
           </div>
           <div *ngIf="country">
-          <ng-container (change)="countryChange($event)" [group]=" form" *ngIf="config.country" appDynamicField
-            [field]="config.country">
-          </ng-container>
+            <ng-container (change)="countryChange($event)" [group]=" form" *ngIf="config.country" appDynamicField
+              [field]="config.country">
+            </ng-container>
           </div>
-          <div *ngIf="term"> 
-          <ng-container (change)="termChange($event)" [group]=" form" *ngIf="config.terms" appDynamicField
-            [field]="config.terms">
-          </ng-container>
+          <div *ngIf="term">
+            <ng-container (change)="termChange($event)" [group]=" form" *ngIf="config.terms" appDynamicField
+              [field]="config.terms">
+            </ng-container>
           </div>
           <div *ngIf="file">
             <ng-container (change)="fileChange($event)" [group]=" form" *ngIf="config.file" appDynamicField
               [field]="config.file">
             </ng-container>
           </div>
-          
+
           <br>
           <p *ngIf="filename">{{filename}} </p>
           <div *ngIf="save">

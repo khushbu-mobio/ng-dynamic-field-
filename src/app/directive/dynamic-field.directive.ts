@@ -71,7 +71,9 @@ export class DynamicFieldDirective implements OnInit {
      */
     this.componentRef.instance.group = this.group;
 
-
+    /**
+     * set component to chag emitter
+     */
     switch (this.field.type) {
       case 'userName':
         this.componentRef.instance.change = this.change;
@@ -100,7 +102,6 @@ export class DynamicFieldDirective implements OnInit {
       case 'button':
         this.componentRef.instance.change = this.change;
         break;
-
     }
   }
 }

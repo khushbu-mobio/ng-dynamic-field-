@@ -18,6 +18,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit() { 
   }
+  
   /**onchange event */
   onChange(event) {
     this.change.emit(this.group.value);

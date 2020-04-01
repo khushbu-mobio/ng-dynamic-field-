@@ -16,6 +16,10 @@ export class RadiobuttonComponent implements OnInit {
 
   ngOnInit() {
   }
+  /**
+   * On chnage event
+   * @param event
+   */
   onChange(event) {
     this.change.emit(this.group.value);
   }

@@ -19,7 +19,6 @@ export class AppComponent {
   data: any = [];
   edit = false
   config: any = [];
-  ///
   userName = true;
   email = false;
   passowrd = false;
@@ -29,9 +28,11 @@ export class AppComponent {
   term = false;
   file = false;
   save = false;
-  //
-  constructor(private fb: FormBuilder, private httpClient: HttpClient,
-    private helperService: HelperService) { }
+  
+  constructor(
+      private fb: FormBuilder, 
+      private httpClient: HttpClient,
+      private helperService: HelperService) { }
 
   /**
    * set config to form
@@ -56,9 +57,7 @@ export class AppComponent {
 
   userNameChange($event) {
     console.log("Change called in app");
-    // //this.form.controls['email'].enable();
     this.email = true;
-
   }
   emailChange($event) {
     this.passowrd = true;

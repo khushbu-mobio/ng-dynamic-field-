@@ -9,9 +9,9 @@ import { FormGroup } from '@angular/forms';
 export class ButtonComponent implements OnInit {
 
   field: any;
-
   group: FormGroup;
   
   constructor() {}
+  
   ngOnInit() {}
 }
