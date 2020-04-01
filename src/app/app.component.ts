@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
-import { FieldSet } from './filedSet';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { HelperService } from './helper.service';
 
 @Component({
@@ -14,7 +13,6 @@ export class AppComponent {
   editIndex: any;
   title = 'dynamic-field-demo';
   filename: any;
-  // config = new FieldSet();
   form: FormGroup
   data: any = [];
   edit = false
@@ -38,8 +36,6 @@ export class AppComponent {
    * set config to form
    */
   ngOnInit() {
-    // this.form = this.addControls(this.config);
-
     this.httpClient.get("assets/register.json").subscribe(data => {
       this.config = data;
       this.config['country'].options = [
@@ -80,9 +76,8 @@ export class AppComponent {
   fileChange($event) {
     this.save = true;
   }
-
   /** End Change Event for show feilds */
-  
+
   /**
    * check unique email id and submit the form data and also edit value based on condition
    */
