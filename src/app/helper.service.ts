@@ -29,15 +29,17 @@ export class HelperService {
    * Bind Validations
    */
   public bindValidations(validations: any) {
+    console.log("validation", validations);
+    
     if (validations.length > 0) {
       const validList = [];
       validations.forEach((valid) => {
         if (valid.name === 'required') {
           validList.push(Validators.required);
         }
-        // if (valid.name === 'pattern') {
-        //   validList.push(Validators.pattern(String(validations)));
-        // }
+        if (valid.name === 'pattern') {
+          validList.push(Validators.pattern(String(valid.validator)));
+        }
       });
       return Validators.compose(validList);
     }

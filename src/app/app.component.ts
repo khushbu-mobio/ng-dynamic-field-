@@ -28,11 +28,11 @@ export class AppComponent {
   term = false;
   file = false;
   save = false;
-  
+
   constructor(
-      private fb: FormBuilder, 
-      private httpClient: HttpClient,
-      private helperService: HelperService) { }
+    private fb: FormBuilder,
+    private httpClient: HttpClient,
+    private helperService: HelperService) { }
 
   /**
    * set config to form
@@ -69,8 +69,6 @@ export class AppComponent {
     this.dob = true;
   }
   dobChange($event) {
-
-    console.log("date");
     this.country = true;
   }
   countryChange($event) {
