@@ -1,67 +1,38 @@
 <div class="row">
   <div class="column">
-    <div class="form">
-      <div style="text-align:center">
-        <h1>
-          Registration Form
-        </h1>
-      </div>
-      <mat-card>
-        <form (ngSubmit)="onSubmit()">
-          <div *ngIf="userName ">
-            <ng-container (change)="userNameChange($event)" [group]="form" *ngIf="config.userName" appDynamicField
-              [field]="config.userName">
-            </ng-container>
-          </div>
-          <div *ngIf="email">
-            <ng-container (change)="emailChange($event)" [group]=" form" *ngIf="config.email " appDynamicField
-              [field]="config.email">
-            </ng-container>
-          </div>
-          <div *ngIf="passowrd">
-            <ng-container (change)="passwordChange($event)" [group]=" form" *ngIf="config.password" appDynamicField
-              [field]="config.password">
-            </ng-container>
-          </div>
-          <div *ngIf="gender">
-            <ng-container (change)="genderChange($event)" [group]=" form" *ngIf="config.gender" appDynamicField
-              [field]="config.gender">
-            </ng-container>
-          </div>
-          <div *ngIf="dob">
-            <ng-container (change)="dobChange($event)" [group]=" form" *ngIf="config.dateOfBirth" appDynamicField
-              [field]="config.dateOfBirth">
-            </ng-container>
-          </div>
-          <div *ngIf="country">
-            <ng-container (change)="countryChange($event)" [group]=" form" *ngIf="config.country" appDynamicField
-              [field]="config.country">
-            </ng-container>
-          </div>
-          <div *ngIf="term">
-            <ng-container (change)="termChange($event)" [group]=" form" *ngIf="config.terms" appDynamicField
-              [field]="config.terms">
-            </ng-container>
-          </div>
-          <div *ngIf="file">
-            <ng-container (change)="fileChange($event)" [group]=" form" *ngIf="config.file" appDynamicField
-              [field]="config.file">
-            </ng-container>
-          </div>
-
-          <br>
-          <p *ngIf="filename">{{filename}} </p>
-          <div *ngIf="save">
-            <ng-container [group]=" form" *ngIf="config.button" appDynamicField [field]="config.button">
-            </ng-container>
-          </div>
-        </form>
-      </mat-card>
+    <div style="text-align:center">
+      <h1>
+        Registration Form
+      </h1>
     </div>
+    <mat-card>
+      <form (ngSubmit)="onSubmit()">
+        <ng-container [group]="form" *ngIf="config.userName" appDynamicField [field]="config.userName">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.email " appDynamicField [field]="config.email">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.password" appDynamicField [field]="config.password">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.gender" appDynamicField [field]="config.gender">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.dateOfBirth" appDynamicField [field]="config.dateOfBirth">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.country" appDynamicField [field]="config.country">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.terms" appDynamicField [field]="config.terms">
+        </ng-container>
+        <ng-container [group]=" form" *ngIf="config.file" appDynamicField [field]="config.file">
+        </ng-container>
+        <br>
+        <p *ngIf="filename">{{filename}} </p>
+        <ng-container [group]=" form" *ngIf="config.button" appDynamicField [field]="config.button">
+        </ng-container>
+      </form>
+    </mat-card>
   </div>
 
   <div class="column">
-    <table>
+    <table mat-table>
       <tr>
         <th>User Name</th>
         <th>Email</th>

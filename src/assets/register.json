@@ -3,7 +3,12 @@
         "type": "userName",
         "label": "username",
         "name": "name",
-        "valid": "name requied",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "validations": [
             {
                 "name": "required",
@@ -21,6 +26,12 @@
         "type": "email",
         "label": "Email Address",
         "name": "email",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "validations": [
             {
                 "name": "required",
@@ -38,6 +49,12 @@
         "type": "password",
         "label": "Password",
         "name": "password",
+        "show-field": [
+            {
+                "yes": true,
+                "no": false
+            }
+        ],
         "validations": [
             {
                 "name": "required",
@@ -50,12 +67,32 @@
         "type": "radio",
         "label": "Gender",
         "name": "gender",
-        "options": []
+        "value": "Male",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
+        "options": [],
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Gender Required"
+            }
+        ]
     },
     "dateOfBirth": {
         "type": "date",
         "label": "DOB",
         "name": "dob",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "validations": [
             {
                 "name": "required",
@@ -68,20 +105,51 @@
         "type": "select",
         "label": "Country",
         "name": "country",
-        "options": []
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
+        "options": [],
+        "validations": [
+            {
+                "name": "required",
+                "validator": "required",
+                "message": "Country Required"
+            }
+        ]
     },
     "terms": {
         "type": "checkbox",
         "label": "Accept Terms",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "name": "term"
     },
     "button": {
         "type": "button",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "label": "Save"
     },
     "file": {
         "type": "file",
         "label": "File",
+        "show-field": [
+            {
+                "yes": "Yes",
+                "no": "No"
+            }
+        ],
         "name": "file"
     }
 }

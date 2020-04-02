@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
 import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
-import { HelperService } from './helper.service';
+import { HelperService } from './modules/form-builder/services/helper.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,22 +11,13 @@ import { HelperService } from './helper.service';
 })
 
 export class AppComponent {
-  editIndex: any;
+  editId: any;
   title = 'dynamic-field-demo';
   filename: any;
   form: FormGroup
   data: any = [];
   edit = false
   config: any = [];
-  userName = true;
-  email = false;
-  passowrd = false;
-  gender = false;
-  dob = false;
-  country = false;
-  term = false;
-  file = false;
-  save = false;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +25,9 @@ export class AppComponent {
     private helperService: HelperService) { }
 
   /**
-   * set config to form
+   * get data from register.json and set in config 
+   * and also set dynamically value for country and gender field 
+   * and  add  Field dynamically
    */
   ngOnInit() {
     this.httpClient.get("assets/register.json").subscribe(data => {
@@ -46,36 +40,8 @@ export class AppComponent {
       ];
       this.config['gender'].options = ["Male", "Female"];
       this.form = this.helperService.addControls(this.config)
-
     })
   }
-
-  /** start Change Event for show feilds */
-  userNameChange($event) {
-    this.email = true;
-  }
-  emailChange($event) {
-    this.passowrd = true;
-  }
-  passwordChange($event) {
-    this.gender = true;
-  }
-  genderChange($event) {
-    this.dob = true;
-  }
-  dobChange($event) {
-    this.country = true;
-  }
-  countryChange($event) {
-    this.term = true;
-  }
-  termChange($event) {
-    this.file = true;
-  }
-  fileChange($event) {
-    this.save = true;
-  }
-  /** End Change Event for show feilds */
 
   /**
    * check unique email id and submit the form data and also edit value based on condition
@@ -91,32 +57,32 @@ export class AppComponent {
       }
       this.data.push(this.form.value);
     } else {
-      this.data[this.editIndex].name = this.form.value.name;
-      this.data[this.editIndex].email = this.form.value.email;
-      this.data[this.editIndex].password = this.form.value.password;
-      this.data[this.editIndex].gender = this.form.value.gender;
-      this.data[this.editIndex].country = this.form.value.country;
-      this.data[this.editIndex].term = this.form.value.term;
-      this.data[this.editIndex].file = this.form.value.file;
+      this.data[this.editId].name = this.form.value.name;
+      this.data[this.editId].email = this.form.value.email;
+      this.data[this.editId].password = this.form.value.password;
+      this.data[this.editId].gender = this.form.value.gender;
+      this.data[this.editId].country = this.form.value.country;
+      this.data[this.editId].term = this.form.value.term;
+      this.data[this.editId].file = this.form.value.file;
     }
     this.form.reset();
   }
 
   /**
-   * delete data
+   * delete data by id 
    */
-  deleteFieldValue(index) {
-    this.data.splice(index, 1);
+  deleteFieldValue(id) {
+    this.data.splice(id, 1);
   }
 
   /**
-   * edit data
+   * edit data by id and disable email field during updating data
    */
-  editFieldValue(index) {
-    this.editIndex = index;
+  editFieldValue(id) {
+    this.editId = id;
     this.edit = true
-    let data = this.data[index];
-    this.filename = this.data[index].file;
+    let data = this.data[id];
+    this.filename = this.data[id].file;
     this.form.controls['email'].disable();
     this.form.patchValue({
       name: data.name,
