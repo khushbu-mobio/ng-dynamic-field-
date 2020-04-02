@@ -11,6 +11,7 @@ import { HelperService } from './modules/form-builder/services/helper.service';
 })
 
 export class AppComponent {
+ 
   editId: any;
   title = 'dynamic-field-demo';
   filename: any;
@@ -18,7 +19,7 @@ export class AppComponent {
   data: any = [];
   edit = false
   config: any = [];
-
+  
   constructor(
     private fb: FormBuilder,
     private httpClient: HttpClient,
