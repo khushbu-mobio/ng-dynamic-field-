@@ -2,6 +2,7 @@
 <mat-form-field class="demo-full-width col-md-12" [formGroup]="group">
   <input
     matInput
+    [name] = "field.name"
     [formControlName]="field.name"
     [placeholder]="field.label"
     [type]="field.type"

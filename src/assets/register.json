@@ -3,10 +3,11 @@
         "type": "userName",
         "label": "username",
         "name": "name",
-        "show-field": [
+        "show": true,
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "validations": [
@@ -26,7 +27,7 @@
         "type": "email",
         "label": "Email Address",
         "name": "email",
-        "show-field": [
+        "show_field": [
             {
                 "yes": "Yes",
                 "no": "No"
@@ -49,7 +50,7 @@
         "type": "password",
         "label": "Password",
         "name": "password",
-        "show-field": [
+        "show_field": [
             {
                 "yes": true,
                 "no": false
@@ -68,10 +69,10 @@
         "label": "Gender",
         "name": "gender",
         "value": "Male",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "options": [],
@@ -87,10 +88,10 @@
         "type": "date",
         "label": "DOB",
         "name": "dob",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "validations": [
@@ -105,10 +106,10 @@
         "type": "select",
         "label": "Country",
         "name": "country",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "options": [],
@@ -123,33 +124,35 @@
     "terms": {
         "type": "checkbox",
         "label": "Accept Terms",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "name": "term"
     },
     "button": {
         "type": "button",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
-        "label": "Save"
+        "label": "Save",
+        "name" : "save"
     },
     "file": {
         "type": "file",
         "label": "File",
-        "show-field": [
+        "show_field": [
             {
-                "yes": "Yes",
-                "no": "No"
+                "yes": true,
+                "no": false
             }
         ],
         "name": "file"
     }
 }
+

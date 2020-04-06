@@ -57,11 +57,14 @@ export class AppComponent {
         return;
       }
       this.data.push(this.form.value);
-    } else {
+    } 
+    else 
+    {
       this.data[this.editId].name = this.form.value.name;
       this.data[this.editId].email = this.form.value.email;
       this.data[this.editId].password = this.form.value.password;
       this.data[this.editId].gender = this.form.value.gender;
+      this.data[this.editId].dob = this.form.value.dob;
       this.data[this.editId].country = this.form.value.country;
       this.data[this.editId].term = this.form.value.term;
       this.data[this.editId].file = this.form.value.file;
@@ -81,6 +84,8 @@ export class AppComponent {
    */
   editFieldValue(id) {
     this.editId = id;
+    console.log("id",id);
+    
     this.edit = true
     let data = this.data[id];
     this.filename = this.data[id].file;

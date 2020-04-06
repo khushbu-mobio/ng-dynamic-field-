@@ -49,19 +49,19 @@
         <th>Action</th>
       </tr>
       <tr *ngFor="let item of data;  let i = index">
-        <td>{{ item.name }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.password}}</td>
-        <td>{{ item.gender }}</td>
-        <td>{{item.dob}}</td>
-        <td>{{item.country}}</td>
-        <td>{{item.term}}</td>
-        <td>{{item.file}}</td>
+        <td name="name">{{ item.name }}</td>
+        <td name="email">{{ item.email }}</td>
+        <td name="password">{{ item.password}}</td>
+        <td name="gender">{{ item.gender }}</td>
+        <td name="dob">{{item.dob}}</td>
+        <td name="country">{{item.country}}</td>
+        <td name="term">{{item.term}}</td>
+        <td name="file">{{item.file}}</td>
         <td>
-          <button type="button" mat-button (click)="editFieldValue(i)">
+          <button name ="edit" type="button" mat-button (click)="editFieldValue(i)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button type="button" mat-button (click)="deleteFieldValue(i)">
+          <button name="delete" type="button" mat-button (click)="deleteFieldValue(i)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
