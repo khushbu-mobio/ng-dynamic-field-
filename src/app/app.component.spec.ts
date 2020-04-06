@@ -204,9 +204,7 @@ describe('AppComponent', () => {
           }
         }
       ];
-      // component.ngOnInit();
       fixture.detectChanges();
-
     });
   }));
 
@@ -222,9 +220,7 @@ describe('AppComponent', () => {
   }));
 
   it(`shuold email id unique `, async(() => {
-
     component.edit = false;
-    let editId = 0;
     component.data = [
       {
         name: 'kshah',
@@ -254,11 +250,9 @@ describe('AppComponent', () => {
 
   it(`should call the onSubmit method`, async(() => {
     component.edit = false;
-    // component.onSubmit();
     spyOn(component, 'onSubmit')
     expect(component.onSubmit).toBeTruthy()
   }));
-
 
   it(`The User Name is wrong and should not be called onSubmit `, async(() => {
     component.edit = false;
@@ -278,39 +272,6 @@ describe('AppComponent', () => {
       });
     expect(component.onSubmit).not.toHaveBeenCalled();
   }));
-
-  // it(`shuold update data`, async(() => {
-  //   component.edit = true;  
-  //   component.form.setValue({
-  //         name: 'kshah',
-  //         email: 'kscn@gmail.com',
-  //         password: 'kscn@gmail.com',
-  //         gender: 'male',
-  //         dob: '11/17/1996',
-  //         country: 'india',
-  //         term: true,
-  //         file: ''
-  //       });
-  //   const data: any = ({
-  //     name: 'kshah',
-  //     email: 'kscn@gmail.com',
-  //     password: 'kscn@gmail.com',
-  //     gender: 'male',
-  //     dob: '11/17/1996',
-  //     country: 'india',
-  //     term: true,
-  //     file: ''
-  //   });
-  //   expect(component.form.value.name).toBe(data.name);
-  //   // expect(component.form.value.email).toBe(data.email);
-  //   // expect(component.form.value.password).toBe(data.password);
-  //   // expect(component.form.value.dob).toBe(data.dob);
-  //   // expect(component.form.value.country).toBe(data.country);
-  //   // expect(component.form.value.term).toBe(data.term);
-  //   // expect(component.form.value.file).toBe(data.file);
-  //   // spyOn(component, 'onSubmit')
-  //   // expect(component.onSubmit).toBeTruthy()
-  // }));
 
   it(`should call the delete method`, async(() => {
     component.form.setValue({
@@ -378,8 +339,6 @@ describe('AppComponent', () => {
         file: ''
       });
     fixture.detectChanges();
-    console.log("data", component.data[component.editId].name);
-    console.log("form", component.form.value.name);
     expect(component.data[component.editId].name).not.toBe(component.form.value.name);
     expect(component.data[component.editId].email).not.toBe(component.form.value.email);
     expect(component.data[component.editId].password).not.toBe(component.form.value.password);
