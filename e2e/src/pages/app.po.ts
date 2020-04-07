@@ -10,10 +10,10 @@ export class AppPage {
   }
 
   /**
-   * Get current url you on
-   */
-  getCurrentUrl() {
-    return browser.getCurrentUrl() as Promise<any>;
+   * Get table data
+  */
+  getTableData() {
+    return element.all(by.css('td')).getText() as Promise<string>;
   }
 
   /**
@@ -23,4 +23,17 @@ export class AppPage {
     return element(by.name(name));
   }
 
+  /**
+  * Get HTML element by `id`
+  */
+  getHTMLElementById(id): ElementFinder {
+    return element(by.id(id));
+  }
+
+  /**
+ * Get HTML element by `tag`
+ */
+  getHTMLElementByTag(tag): ElementFinder {
+    return element(by.tagName(tag));
+  }
 }

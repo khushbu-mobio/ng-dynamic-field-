@@ -1,7 +1,3 @@
-
-
-
-
 <div class="row">
   <div class="column">
     <div style="text-align:center">
@@ -34,9 +30,9 @@
       </form>
     </mat-card>
   </div>
-
+  <p id="tnam"></p>
   <div class="column">
-    <table >
+    <table>
       <tr>
         <th>User Name</th>
         <th>Email</th>
@@ -49,16 +45,16 @@
         <th>Action</th>
       </tr>
       <tr *ngFor="let item of data;  let i = index">
-        <td name="name">{{ item.name }}</td>
-        <td name="email">{{ item.email }}</td>
-        <td name="password">{{ item.password}}</td>
-        <td name="gender">{{ item.gender }}</td>
-        <td name="dob">{{item.dob}}</td>
-        <td name="country">{{item.country}}</td>
-        <td name="term">{{item.term}}</td>
-        <td name="file">{{item.file}}</td>
+        <td id="tname">{{ item.name }}</td>
+        <td id="temail">{{ item.email }}</td>
+        <td id="tpassword">{{ item.password}}</td>
+        <td id="tgender">{{ item.gender }}</td>
+        <td id="tdob">{{item.dob}}</td>
+        <td id="tcountry">{{item.country}}</td>
+        <td id="tterm">{{item.term}}</td>
+        <td id="tfile">{{item.file}}</td>
         <td>
-          <button name ="edit" type="button" mat-button (click)="editFieldValue(i)">
+          <button name="edit" type="button" mat-button (click)="editFieldValue(i)">
             <mat-icon>edit</mat-icon>
           </button>
           <button name="delete" type="button" mat-button (click)="deleteFieldValue(i)">
@@ -69,6 +65,3 @@
     </table>
   </div>
 </div>
-
-
-
