@@ -31,7 +31,7 @@ export class AppPage {
   }
 
   /**
- * Get HTML element by `tag`
+ * Get HTML element by `tag` 
  */
   getHTMLElementByTag(tag): ElementFinder {
     return element(by.tagName(tag));

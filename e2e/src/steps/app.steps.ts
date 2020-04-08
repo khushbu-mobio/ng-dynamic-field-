@@ -40,7 +40,6 @@ Given(/^Go to Registration page and Display Data in Table$/, async () => {
 When("Click on 'delete' button for deleting record", function () {
   page.getHTMLElementByName('delete').click();
   page.getHTMLElementByTag('td').clear();
-  //  element(by.css('td')).clear();
 });
 
 Then(/^Deleted Record Successfully$/, async () => {

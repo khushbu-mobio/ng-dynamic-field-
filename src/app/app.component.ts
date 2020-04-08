@@ -3,7 +3,6 @@ import { Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
 import { HelperService } from './modules/form-builder/services/helper.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
