@@ -1,7 +1,7 @@
 import { Before, Given, Then, When } from 'cucumber';
 
 import { AppPage } from '../pages/app.po';
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 
 let page: AppPage;
 
@@ -24,16 +24,39 @@ When(/^I Entering valid  Name, Email,Password, Gender, Country,Term & File  clic
   await page.getHTMLElementByName('save').click();
 });
 
-Then('Display Data in Table', function () {
-  return element.all(by.css('td')).getText() as Promise<string>;
+Then('Registraion Completed Successfully', async () => {
+  console.log("Registraion Completed Successfully")
 });
 
-Then("Click on 'delete' button for deleting record", function () {
+Then(/^Back on Registraion$/, async () => {
+  await page.navigateTo();
+})
+
+Given(/^Go to Registration page and Display Data in Table$/, async () => {
+  await page.navigateTo();
+  element.all(by.css('td')).getText();
+});
+
+When("Click on 'delete' button for deleting record", function () {
   page.getHTMLElementByName('delete').click();
-  element(by.css('td')).clear();
+  page.getHTMLElementByTag('td').clear();
+  //  element(by.css('td')).clear();
 });
 
-Then("Click on 'edit' button for updating details", function () {
+Then(/^Deleted Record Successfully$/, async () => {
+  console.log("Deleted Record Successfully")
+});
+
+Then(/^Redirect to Registraion$/, async () => {
+  browser.get(browser.baseUrl) as Promise<any>;
+})
+
+Given("Go to Registration page and display registration list", function () {
+  browser.get(browser.baseUrl) as Promise<any>;
+  element.all(by.css('td')).getText();
+});
+
+When("Click on 'edit' button for updating details", function () {
   page.getHTMLElementByName('edit').click();
   page.getHTMLElementByName('name').getText();
   page.getHTMLElementByName('email').getText();
@@ -51,3 +74,11 @@ Then("Click on 'edit' button for updating details", function () {
   page.getHTMLElementByName('term').sendKeys("true");
   page.getHTMLElementByName('save').click();
 });
+
+Then(/^Update Record Successfully$/, async () => {
+  console.log("Update Record Successfully")
+});
+
+Then(/^Redirect to registration page$/, async () => {
+  page.navigateTo();
+})

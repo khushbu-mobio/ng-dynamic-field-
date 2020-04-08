@@ -11,7 +11,7 @@ import { HelperService } from './modules/form-builder/services/helper.service';
 })
 
 export class AppComponent {
- 
+
   editId: any;
   title = 'dynamic-field-demo';
   filename: any;
@@ -19,7 +19,7 @@ export class AppComponent {
   data: any = [];
   edit = false
   config: any = [];
-  
+
   constructor(
     private fb: FormBuilder,
     private httpClient: HttpClient,
@@ -57,9 +57,8 @@ export class AppComponent {
         return;
       }
       this.data.push(this.form.value);
-    } 
-    else 
-    {
+    }
+    else {
       this.data[this.editId].name = this.form.value.name;
       this.data[this.editId].email = this.form.value.email;
       this.data[this.editId].password = this.form.value.password;
@@ -84,8 +83,8 @@ export class AppComponent {
    */
   editFieldValue(id) {
     this.editId = id;
-    console.log("id",id);
-    
+    console.log("id", id);
+
     this.edit = true
     let data = this.data[id];
     this.filename = this.data[id].file;
